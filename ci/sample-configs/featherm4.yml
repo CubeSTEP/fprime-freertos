@@ -6,8 +6,8 @@ test-scripts:
   #- lib/fprime/Svc/EventManager/test/int/test_cmd_eventManager.py 
   - ReferenceDeployment/test/int/test.py
 # FreeRTOS uses custom dictionary path
-dictionary: build-artifacts/FeatherM4_FreeRTOS/ReferenceDeployment/dict/ReferenceDeploymentTopologyDictionary.json
-executable: build-artifacts/FeatherM4_FreeRTOS/ReferenceDeployment/bin/ReferenceDeployment.elf.bin
+dictionary: build-artifacts/fprime-NucleoH7XX-freertos/ReferenceDeployment/dict/ReferenceDeploymentTopologyDictionary.json
+executable: build-artifacts/ifprime-NucleoH7XX-freertos/ReferenceDeployment/bin/ReferenceDeployment.elf.bin
 archive-path: ./archive.tar.gz
 
 extra-gds-arguments:
@@ -58,5 +58,5 @@ flash-command:
   - "0x4000"
   - -w
   - -v
-  - build-artifacts/FeatherM4_FreeRTOS/ReferenceDeployment/bin/ReferenceDeployment.elf.bin
+  - build-artifacts/fprime-NucleoH7XX-freertos/ReferenceDeployment/bin/ReferenceDeployment.elf.bin
   - -R
