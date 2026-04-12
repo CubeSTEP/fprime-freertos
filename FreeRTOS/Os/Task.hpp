@@ -55,7 +55,7 @@ public:
     //! \brief Delay task for a given duration
     //! \param interval: The amount of time in milliseconds to delay task
     //! \return Always returns Os::Task::Status::OP_OK
-    Status _delay(Fw::TimeInterval interval) override;
+    Status _delay(const Fw::TimeInterval& interval) override;
 
     //! \brief Get the underlying task handle
     //! \return Internal task handle representation
