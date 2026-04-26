@@ -4,6 +4,7 @@
 // ======================================================================
 #include "FreeRTOS/Os/Task.hpp"
 #include <Fw/Types/Assert.hpp>
+#include <new>
 
 namespace Os {
 namespace FreeRTOS {
@@ -35,7 +36,11 @@ void FreeRTOSTask::onStart() {
 Os::Task::Status FreeRTOSTask::start(const Arguments& arguments) {
 
     // Dynamically allocate memory for arguments
-    Arguments* taskArguments = new Arguments(arguments);
+    void* const taskArgumentStorage = pvPortMalloc(sizeof(Arguments));
+    if (taskArgumentStorage == nullptr) {
+        return Os::Task::Status::UNKNOWN_ERROR;
+    }
+    Arguments* taskArguments = new (taskArgumentStorage) Arguments(arguments);
 
     // Ensure routine is not null
     FW_ASSERT(arguments.m_routine != nullptr);
