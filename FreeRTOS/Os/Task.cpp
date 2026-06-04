@@ -74,7 +74,7 @@ void FreeRTOSTask::resume() {
     vTaskResume(this->m_handle.m_task_descriptor);
 }
 
-Os::Task::Status FreeRTOSTask::_delay(Fw::TimeInterval interval) {
+Os::Task::Status FreeRTOSTask::_delay(const Fw::TimeInterval& interval) {
     TickType_t ticks = pdMS_TO_TICKS( (interval.getSeconds()*1000) + interval.getUSeconds());
     vTaskDelay(ticks);
     return Os::Task::Status::OP_OK;
