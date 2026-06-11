@@ -4,8 +4,8 @@
 
 Welcome to fprime-freertos, a port that connects the Operating System Abstraction Layer (OSAL) of the <a href="https://fprime.jpl.nasa.gov/">F' Flight Software Framework</a> with the <a href="https://www.freertos.org/">FreeRTOS</a> open-source RTOS for microcontrollers and small microprocessors. This repository is designed to be paired with platform and board specific repositories to run F' systems on a variety of boards. If the board you are trying to run fprime-freertos on already has a reference application and platform repository, I recommend starting there. As example for the featherm4-freertos platform see the following repositories for more detail.
 
-- <a href=https://github.com/fprime-community/fprime-nucleo_h723zg-freertos-reference>fprime-nucleo_h723zg-freertos-reference</a> - an example of a basic build using a specific platform
-    - <a href=https://github.com/fprime-community/fprime-nucleo_h723zg-freertos>fprime-nucleo_h723zg-freertos</a> - a platform repository which is defined by a combination of board and OS
+- <a href=https://github.com/fprime-community/fprime-featherm4-freertos-reference>fprime-featherm4-freertos-reference</a> - an example of a basic build using a specific platform
+    - <a href=https://github.com/fprime-community/fprime-featherm4-freertos>fprime-featherm4-freertos</a> - a platform repository which is defined by a combination of board and OS
         - <a href=https://github.com/fprime-community/fprime-arduino>fprime-arduino</a> - board-specific platform/toolchain/driver files
         - fprime-freertos (this repository) - a port connecting the F' OSAL to FreeRTOS
 
@@ -360,4 +360,3 @@ Before continuing, make sure your current working directory is where you want yo
     - Navigate to <a href=http://127.0.0.1:5000>http://127.0.0.1:5000</a> in a browser or wherever the terminal output shows the GDS UI is available
     - Send a few commands and make sure event and channelized telemetry are updating
     - Congratulations, you have the F' and FreeRTOS running on a physical board!
-
