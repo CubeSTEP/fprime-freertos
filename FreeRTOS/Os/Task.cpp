@@ -35,7 +35,17 @@ void FreeRTOSTask::onStart() {
 
 Os::Task::Status FreeRTOSTask::start(const Arguments& arguments) {
 
-    // Dynamically allocate memory for arguments
+    /*
+     * Allocate memory for task arguments and construct arguments in-place.
+     * This avoids issues on certain FreeRTOS systems: pvPortMalloc may
+     * pause the scheduler and allocates from the FreeRTOS heap. 
+     * Memory cannot be deallocated as arguments are needed until task 
+     * termination *pvPortFree* cannot be called on these arguments for 
+     * the same reason. Noted documentation supporting this note can be seen here:
+     * "If pvParameters is set to the address of a variable then the variable must 
+     * still exist when the created task executes - so it is not valid to pass the 
+     * address of a stack." 
+     */
     void* const taskArgumentStorage = pvPortMalloc(sizeof(Arguments));
     if (taskArgumentStorage == nullptr) {
         return Os::Task::Status::UNKNOWN_ERROR;
